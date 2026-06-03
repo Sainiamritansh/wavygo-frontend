@@ -1,0 +1,401 @@
+/* ============================================================
+   HomePage Styles
+   ============================================================ */
+
+/* ── Hero ────────────────────────────────────────────────── */
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.home-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 70% 50%,
+    rgba(232, 245, 238, 0.7) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+.home-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(76, 175, 125, 0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.home-hero-badge {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.home-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.home-hero-title-accent {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.home-hero-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--color-accent);
+  opacity: 0.3;
+  border-radius: 3px;
+}
+
+.home-hero-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: var(--space-xl);
+}
+
+.home-hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.home-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-hero-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(76, 175, 125, 0.2) 0%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.home-hero-scooter {
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  z-index: 1;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(26, 77, 46, 0.15));
+}
+
+/* ── Stats Strip ─────────────────────────────────────────── */
+.home-stats {
+  background: var(--color-primary);
+  padding: var(--space-xl) 0;
+}
+
+.home-stats-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.home-stat {
+  position: relative;
+  color: #fff;
+}
+
+.home-stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+
+.home-stat-label {
+  font-size: var(--text-sm);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.home-stat-divider {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── How It Works ────────────────────────────────────────── */
+.home-how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  position: relative;
+}
+
+.home-how-card {
+  text-align: center;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.home-how-card:hover {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.home-how-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+}
+
+.home-how-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--color-mint);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+}
+
+.home-how-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.home-how-card p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+/* Dashed connecting line */
+.home-how-grid::before {
+  content: '';
+  position: absolute;
+  top: 72px;
+  left: calc(33.33% + 20px);
+  width: calc(33.33% - 40px);
+  height: 2px;
+  border-top: 2px dashed var(--color-border);
+}
+
+.home-how-grid::after {
+  content: '';
+  position: absolute;
+  top: 72px;
+  right: calc(33.33% + 20px);
+  width: calc(33.33% - 40px);
+  height: 2px;
+  border-top: 2px dashed var(--color-border);
+}
+
+/* ── Why WavyGo ──────────────────────────────────────────── */
+.home-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.home-why-grid > *:nth-child(4) {
+  grid-column: span 2;
+}
+
+.home-why-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  border: 1px solid var(--color-border-light);
+}
+
+.home-why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.home-why-card--highlight {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: transparent;
+}
+
+.home-why-card--highlight .home-why-icon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.home-why-card--highlight p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.home-why-card--highlight:hover {
+  box-shadow: var(--shadow-green);
+}
+
+.home-why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-mint);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+}
+
+.home-why-card h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.home-why-card p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── CTA Banner ──────────────────────────────────────────── */
+.home-cta {
+  background: var(--color-primary);
+  padding: var(--space-4xl) 0;
+}
+
+.home-cta-inner {
+  text-align: center;
+  color: #fff;
+}
+
+.home-cta-icon {
+  margin: 0 auto var(--space-lg);
+  opacity: 0.8;
+}
+
+.home-cta h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-md);
+}
+
+.home-cta p {
+  font-size: var(--text-lg);
+  opacity: 0.8;
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-xl);
+  }
+  .home-hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-hero-actions {
+    justify-content: center;
+  }
+  .home-hero-visual {
+    order: -1;
+  }
+  .home-hero-scooter {
+    max-width: 300px;
+  }
+  .home-hero-glow {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-md);
+  }
+  .home-stat-divider {
+    display: none;
+  }
+  .home-stat-value {
+    font-size: var(--text-2xl);
+  }
+  .home-how-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .home-how-grid::before,
+  .home-how-grid::after {
+    display: none;
+  }
+  .home-why-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-why-grid > *:nth-child(4) {
+    grid-column: span 1;
+  }
+  .home-cta h2 {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero-title {
+    font-size: 2rem;
+  }
+  .home-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .home-hero-actions .btn {
+    width: 100%;
+  }
+}

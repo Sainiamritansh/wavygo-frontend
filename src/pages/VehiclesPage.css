@@ -1,0 +1,622 @@
+/* ============================================================
+   WavyGo — Vehicles Page
+   ============================================================ */
+
+/* ── Location Banner ──────────────────────────────────────── */
+.vehicles-location-banner {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: var(--space-md) 0;
+}
+
+.vehicles-location-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.vehicles-location-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.vehicles-location-info svg {
+  flex-shrink: 0;
+}
+
+/* ── Filter Tags ──────────────────────────────────────────── */
+.vehicles-filters {
+  padding: var(--space-xl) 0 var(--space-md);
+}
+
+.vehicles-filters-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: var(--space-xs) 0;
+}
+
+.vehicles-filters-row::-webkit-scrollbar {
+  display: none;
+}
+
+.vehicles-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+  background: transparent;
+}
+
+.vehicles-filter-tag:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-mint);
+}
+
+.vehicles-filter-tag--active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.vehicles-filter-tag--active:hover {
+  background: var(--color-primary-light);
+  color: #fff;
+  border-color: var(--color-primary-light);
+}
+
+/* ── Vehicle Cards Grid ───────────────────────────────────── */
+.vehicles-grid-section {
+  padding: var(--space-lg) 0 var(--space-4xl);
+}
+
+.vehicles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 1200px) {
+  .vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicles-filters-row {
+    justify-content: flex-start;
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+}
+
+/* ── Vehicle Card ─────────────────────────────────────────── */
+.vehicles-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.vehicles-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.vehicles-card--unavailable:hover {
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
+.vehicles-card__image-area {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+
+.vehicles-card__image-area svg {
+  width: 64px;
+  height: 64px;
+  opacity: 0.35;
+}
+
+.vehicles-card__image-area--scooter {
+  background: linear-gradient(135deg, #E8F5EE, #c8e6d0);
+}
+
+.vehicles-card__image-area--scooter svg {
+  color: var(--color-primary);
+}
+
+.vehicles-card__image-area--electric {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+}
+
+.vehicles-card__image-area--electric svg {
+  color: #2563eb;
+}
+
+.vehicles-card__image-area--motorcycle {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.vehicles-card__image-area--motorcycle svg {
+  color: #b45309;
+}
+
+.vehicles-card__type-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+.vehicles-card__badge-grey {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  line-height: 1;
+  background: rgba(243, 244, 246, 0.9);
+  color: var(--color-text-muted);
+  backdrop-filter: blur(4px);
+}
+
+.vehicles-card__body {
+  padding: var(--space-lg);
+}
+
+.vehicles-card__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.vehicles-card__rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.vehicles-card__rating svg {
+  flex-shrink: 0;
+}
+
+.vehicles-card__rating-value {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+.vehicles-card__rating-count {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.vehicles-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+}
+
+.vehicles-card__price {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.vehicles-card__price span {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+/* ── Unavailable Overlay ──────────────────────────────────── */
+.vehicles-card__unavailable-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  border-radius: var(--radius-lg);
+}
+
+/* ── Empty State ──────────────────────────────────────────── */
+.vehicles-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-4xl) var(--space-lg);
+}
+
+.vehicles-empty__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-lg);
+  color: var(--color-text-muted);
+  opacity: 0.4;
+}
+
+.vehicles-empty h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.vehicles-empty p {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+}
+
+/* ── Skeleton Cards ───────────────────────────────────────── */
+.skeleton-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.skeleton-card__image {
+  height: 200px;
+  border-radius: 0;
+}
+
+.skeleton-card__body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skeleton-card__title {
+  height: 22px;
+  width: 70%;
+}
+
+.skeleton-card__rating {
+  height: 16px;
+  width: 50%;
+}
+
+.skeleton-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+}
+
+.skeleton-card__price {
+  height: 24px;
+  width: 30%;
+}
+
+.skeleton-card__button {
+  height: 40px;
+  width: 100px;
+  border-radius: var(--radius-pill);
+}
+
+/* ── Steps Section ────────────────────────────────────────── */
+.vehicles-steps {
+  padding: var(--space-3xl) 0;
+  background: var(--color-surface);
+}
+
+.vehicles-steps .section-header h2 {
+  font-size: var(--text-3xl);
+}
+
+.vehicles-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.vehicles-step-card {
+  text-align: center;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  transition: all var(--transition-base);
+}
+
+.vehicles-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.vehicles-step-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-circle, 50%);
+  background: var(--color-mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  color: var(--color-primary);
+}
+
+.vehicles-step-number {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-sm);
+}
+
+.vehicles-step-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.vehicles-step-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .vehicles-steps-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .vehicles-step-card {
+    padding: var(--space-lg);
+  }
+}
+
+/* ── CTA Banner ───────────────────────────────────────────── */
+.vehicles-cta {
+  background: var(--color-primary);
+  padding: var(--space-3xl) 0;
+}
+
+.vehicles-cta-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.vehicles-cta h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: #fff;
+}
+
+.vehicles-cta p {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .vehicles-cta h2 {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ── Card Image & Zoom Hover ───────────────────────────────── */
+.vehicles-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.vehicles-card:hover .vehicles-card__image {
+  transform: scale(1.06);
+}
+
+/* ── Booking Modal ────────────────────────────────────────── */
+.booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-md);
+}
+
+.booking-modal {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  position: relative;
+  animation: scaleIn var(--transition-fast);
+}
+
+.booking-modal__header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.booking-modal__header h2 {
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.booking-modal__close {
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.booking-modal__close:hover {
+  color: var(--color-danger);
+}
+
+.booking-modal__body {
+  padding: var(--space-lg);
+}
+
+.booking-modal__preview {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background: var(--color-border-light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  align-items: center;
+}
+
+.booking-modal__preview-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border: 1px solid var(--color-border);
+}
+
+.booking-modal__preview-info h3 {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.booking-modal__preview-price {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: var(--text-base);
+}
+
+.booking-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.booking-modal__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.booking-modal__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.booking-modal__input-group label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.booking-modal__input {
+  padding: 10px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+  background: #fff;
+}
+
+.booking-modal__input:focus {
+  border-color: var(--color-accent);
+}
+
+.booking-modal__summary {
+  background: var(--color-mint);
+  border: 1px solid var(--color-accent-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.booking-modal__summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.booking-modal__summary-row--total {
+  margin-top: var(--space-xs);
+  padding-top: var(--space-xs);
+  border-top: 1px dashed var(--color-accent-light);
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--color-primary);
+}
+
+.booking-modal__actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.booking-modal__btn-submit {
+  flex: 1;
+}
+
+.booking-modal__btn-cancel {
+  background: var(--color-border-light);
+  color: var(--color-text-muted);
+}
+
+.booking-modal__btn-cancel:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+

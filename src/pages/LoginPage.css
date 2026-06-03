@@ -1,0 +1,176 @@
+/* ============================================================
+   WavyGo — Login Page Styles
+   ============================================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F7F3;
+  padding: var(--space-lg);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.login-logo {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.5px;
+}
+
+/* ── Heading & Subtext ──────────────────────────────────── */
+.login-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.login-subtext {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Form ───────────────────────────────────────────────── */
+.login-form {
+  width: 100%;
+}
+
+.login-form .input-group {
+  margin-bottom: var(--space-lg);
+}
+
+/* Password field needs right padding for eye toggle */
+.login-password-input {
+  padding-right: 48px !important;
+}
+
+/* ── Eye Toggle ─────────────────────────────────────────── */
+.login-eye-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.login-eye-toggle:hover {
+  color: var(--color-accent);
+}
+
+/* Adjust icon position when error message is shown */
+.login-form .input-group.has-error .login-eye-toggle {
+  top: calc(50% - 10px);
+}
+
+/* ── Forgot Password ───────────────────────────────────── */
+.login-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: calc(-1 * var(--space-sm));
+  margin-bottom: var(--space-lg);
+}
+
+.login-forgot-link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.login-forgot-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ── Submit Button ──────────────────────────────────────── */
+.login-submit-btn {
+  width: 100%;
+  font-size: var(--text-base);
+  min-height: 48px;
+}
+
+/* ── Google Button ──────────────────────────────────────── */
+.login-google-btn {
+  width: 100%;
+  min-height: 48px;
+}
+
+.login-google-icon {
+  flex-shrink: 0;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.login-footer {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.login-footer-link {
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.login-footer-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.login-terms-link {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-sm);
+  transition: color var(--transition-fast);
+}
+
+.login-terms-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .login-logo {
+    font-size: var(--text-2xl);
+  }
+}

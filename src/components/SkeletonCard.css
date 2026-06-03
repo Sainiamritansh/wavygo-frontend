@@ -1,0 +1,46 @@
+.skeleton-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 0;
+}
+
+.skeleton-card-image {
+  width: 100%;
+  height: 200px;
+}
+
+.skeleton-card-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skeleton-card-badge {
+  width: 80px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+}
+
+.skeleton-card-title {
+  width: 70%;
+  height: 24px;
+}
+
+.skeleton-card-rating {
+  width: 100px;
+  height: 16px;
+}
+
+.skeleton-card-price {
+  width: 60px;
+  height: 20px;
+}
+
+.skeleton-card-button {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  margin-top: var(--space-sm);
+}
